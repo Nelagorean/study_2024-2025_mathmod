@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Горяйнова АА">
+  <title>Лабораторная работа №1</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/beige.css" id="theme">
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Лабораторная работа №1</h1>
+  <p class="subtitle">Работа с Git</p>
+  <p class="author">Горяйнова АА</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+</section>
+
+<section id="информация" class="slide level1">
+<h1>Информация</h1>
+<h2 id="докладчик">Докладчик</h2>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Горяйнова Алёна Андреевна</li>
+<li>студентка</li>
+<li>Российский университет дружбы народов</li>
+</ul>
+</div><div class="column" style="width:30%;">
+
+</div>
+</div>
+<h2 id="цель-работы">Цель работы</h2>
+<p>Приобрести практические навыки работы с системой управления версиями
+Git.</p>
+<h2 id="задания">Задания</h2>
+<ol type="1">
+<li><p>Создать репозиторий</p></li>
+<li><p>Изменить его содержимое, изучить работу с коммитами, версиями и
+тегами</p></li>
+<li><p>Поработать с объектами Git</p></li>
+<li><p>Создать дополнительную ветку, провести слияние, разрешение
+конфликтов</p></li>
+<li><p>Создать клон репозитория и слить его с оригинальным</p></li>
+<li><p>Залить и извлечь изменения</p></li>
+</ol>
+</section>
+<section id="выполнение-лабораторной-работы" class="slide level1">
+<h1>Выполнение лабораторной работы</h1>
+<h2 id="подготовка">Подготовка</h2>
+<figure>
+<img data-src="image/1.png" id="fig:001" style="width:70.0%"
+alt="Настройка git" />
+<figcaption aria-hidden="true">Настройка git</figcaption>
+</figure>
+<h2 id="создание-проекта">Создание проекта</h2>
+<figure>
+<img data-src="image/2.png" id="fig:002" style="width:30.0%"
+alt="Создание репозитория" />
+<figcaption aria-hidden="true">Создание репозитория</figcaption>
+</figure>
+<figure>
+<img data-src="image/3.png" id="fig:002" style="width:30.0%"
+alt="Добавление файла в репозиторий" />
+<figcaption aria-hidden="true">Добавление файла в
+репозиторий</figcaption>
+</figure>
+<h2 id="внесение-изменений">Внесение изменений</h2>
+<figure>
+<img data-src="image/4.png" id="fig:004" style="width:50.0%"
+alt="Внесение изменений в содержимое репозитория" />
+<figcaption aria-hidden="true">Внесение изменений в содержимое
+репозитория</figcaption>
+</figure>
+<h2 id="внесение-изменений-1">Внесение изменений</h2>
+Изменим страницу «Hello, World», чтобы она содержала стандартные теги
+<html>
+и
+<body>
+<p>.</p>
+<pre><code>&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h2 id="внесение-изменений-2">Внесение изменений</h2>
+<figure>
+<img data-src="image/5.png" id="fig:005" style="width:70.0%"
+alt="Внесение нескольких изменений в содержимое репозитория" />
+<figcaption aria-hidden="true">Внесение нескольких изменений в
+содержимое репозитория</figcaption>
+</figure>
+<h2 id="внесение-изменений-3">Внесение изменений</h2>
+<figure>
+<img data-src="image/6.png" id="fig:006" style="width:70.0%"
+alt="Внесение нескольких изменений в содержимое репозитория" />
+<figcaption aria-hidden="true">Внесение нескольких изменений в
+содержимое репозитория</figcaption>
+</figure>
+<h2 id="история">История</h2>
+<figure>
+<img data-src="image/7.png" id="fig:007" style="width:50.0%"
+alt="Просмотр истории" />
+<figcaption aria-hidden="true">Просмотр истории</figcaption>
+</figure>
+<h2 id="получение-старых-версий">Получение старых версий</h2>
+<figure>
+<img data-src="image/8.png" id="fig:008" style="width:70.0%"
+alt="Просмотр разных версий репозитория" />
+<figcaption aria-hidden="true">Просмотр разных версий
+репозитория</figcaption>
+</figure>
+<h2 id="создание-тегов-версий">Создание тегов версий</h2>
+<figure>
+<img data-src="image/9.png" id="fig:009" style="width:70.0%"
+alt="Создание тегов версий" />
+<figcaption aria-hidden="true">Создание тегов версий</figcaption>
+</figure>
+<h2 id="отмена-локальных-изменений-до-индексации">Отмена локальных
+изменений (до индексации)</h2>
+<figure>
+<img data-src="image/11.png" id="fig:011" style="width:50.0%"
+alt="Отмена локальных изменений (до индексации)" />
+<figcaption aria-hidden="true">Отмена локальных изменений (до
+индексации)</figcaption>
+</figure>
+<h2 id="отмена-проиндексированных-изменений-перед-коммитом">Отмена
+проиндексированных изменений (перед коммитом)</h2>
+<figure>
+<img data-src="image/12.png" id="fig:012" style="width:40.0%"
+alt="Отмена проиндексированных изменений (перед коммитом)" />
+<figcaption aria-hidden="true">Отмена проиндексированных изменений
+(перед коммитом)</figcaption>
+</figure>
+<h2 id="отмена-коммитов">Отмена коммитов</h2>
+<figure>
+<img data-src="image/13.png" id="fig:013" style="width:50.0%"
+alt="Отмена коммитов" />
+<figcaption aria-hidden="true">Отмена коммитов</figcaption>
+</figure>
+<h2 id="удаление-коммиттов-из-ветки">Удаление коммиттов из ветки</h2>
+<figure>
+<img data-src="image/14.png" id="fig:014" style="width:50.0%"
+alt="Удаление коммиттов из ветки" />
+<figcaption aria-hidden="true">Удаление коммиттов из ветки</figcaption>
+</figure>
+<h2 id="удаление-коммиттов-из-ветки-1">Удаление коммиттов из ветки</h2>
+<figure>
+<img data-src="image/15.png" id="fig:015" style="width:50.0%"
+alt="Ничего никогда не теряется" />
+<figcaption aria-hidden="true">Ничего никогда не теряется</figcaption>
+</figure>
+<h2 id="удаление-тега-oops">Удаление тега oops</h2>
+<figure>
+<img data-src="image/16.png" id="fig:016" style="width:50.0%"
+alt="Удаление тега oops" />
+<figcaption aria-hidden="true">Удаление тега oops</figcaption>
+</figure>
+<h2 id="изменение-предыдущего-коммита">Изменение предыдущего
+коммита</h2>
+<figure>
+<img data-src="image/17.png" id="fig:017" style="width:70.0%"
+alt="Изменение предыдущего коммита" />
+<figcaption aria-hidden="true">Изменение предыдущего
+коммита</figcaption>
+</figure>
+<h2 id="изменение-предыдущего-коммита-1">Изменение предыдущего
+коммита</h2>
+<figure>
+<img data-src="image/18.png" id="fig:018" style="width:50.0%"
+alt="Изменение предыдущего коммита" />
+<figcaption aria-hidden="true">Изменение предыдущего
+коммита</figcaption>
+</figure>
+<h2 id="перемещение-файлов">Перемещение файлов</h2>
+<p>Переместим наш файл в каталог lib. Для этого создадим его и
+используем команду git mv, сделаем коммит этого пермещения.</p>
+<h2 id="подробнее-о-структуре">Подробнее о структуре</h2>
+<figure>
+<img data-src="image/19.png" id="fig:019" style="width:70.0%"
+alt="Результат открытия index.html" />
+<figcaption aria-hidden="true">Результат открытия
+index.html</figcaption>
+</figure>
+<h2 id="git-внутри-каталог-.git">Git внутри: Каталог .git</h2>
+<figure>
+<img data-src="image/20.png" id="fig:020" style="width:40.0%"
+alt="Каталог .git" />
+<figcaption aria-hidden="true">Каталог .git</figcaption>
+</figure>
+<h2 id="работа-непосредственно-с-объектами-git">Работа непосредственно с
+объектами git</h2>
+<figure>
+<img data-src="image/21.png" id="fig:019" style="width:40.0%"
+alt="Работа непосредственно с объектами git" />
+<figcaption aria-hidden="true">Работа непосредственно с объектами
+git</figcaption>
+</figure>
+<h2 id="создание-ветки">Создание ветки</h2>
+<figure>
+<img data-src="image/22.png" id="fig:022" style="width:70.0%"
+alt="Создание ветки" />
+<figcaption aria-hidden="true">Создание ветки</figcaption>
+</figure>
+<h2 id="создание-ветки-1">Создание ветки</h2>
+<figure>
+<img data-src="image/23.png" id="fig:023" style="width:70.0%"
+alt="Создание ветки" />
+<figcaption aria-hidden="true">Создание ветки</figcaption>
+</figure>
+<h2 id="навигация-по-веткам">Навигация по веткам</h2>
+<figure>
+<img data-src="image/26.png" id="fig:026" style="width:60.0%"
+alt="Просмотр логов новой ветки" />
+<figcaption aria-hidden="true">Просмотр логов новой ветки</figcaption>
+</figure>
+<h2 id="навигация-по-веткам-1">Навигация по веткам</h2>
+<figure>
+<img data-src="image/27.png" id="fig:027" style="width:70.0%"
+alt="Переключение на ветку master" />
+<figcaption aria-hidden="true">Переключение на ветку master</figcaption>
+</figure>
+<h2 id="изменения-в-ветке-master">Изменения в ветке master</h2>
+<figure>
+<img data-src="image/29.png" id="fig:029" style="width:40.0%"
+alt="Изменения в ветке master" />
+<figcaption aria-hidden="true">Изменения в ветке master</figcaption>
+</figure>
+<h2 id="слияние">Слияние</h2>
+<figure>
+<img data-src="image/30.png" id="fig:030" style="width:40.0%"
+alt="Слияние веток" />
+<figcaption aria-hidden="true">Слияние веток</figcaption>
+</figure>
+<h2 id="создание-конфликта">Создание конфликта</h2>
+<figure>
+<img data-src="image/31.png" id="fig:031" style="width:30.0%"
+alt="Создание конфликта" />
+<figcaption aria-hidden="true">Создание конфликта</figcaption>
+</figure>
+<h2 id="разрешение-конфликтов">Разрешение конфликтов</h2>
+<figure>
+<img data-src="image/32.png" id="fig:032" style="width:70.0%"
+alt="Конфликт" />
+<figcaption aria-hidden="true">Конфликт</figcaption>
+</figure>
+<h2 id="разрешение-конфликтов-1">Разрешение конфликтов</h2>
+<figure>
+<img data-src="image/33.png" id="fig:033" style="width:70.0%"
+alt="Разрешение конфликта" />
+<figcaption aria-hidden="true">Разрешение конфликта</figcaption>
+</figure>
+<h2 id="сброс-ветки-style">Сброс ветки style</h2>
+<figure>
+<img data-src="image/34.png" id="fig:034" style="width:30.0%"
+alt="Поиск коммита перед слиянием" />
+<figcaption aria-hidden="true">Поиск коммита перед слиянием</figcaption>
+</figure>
+<h2 id="сброс-ветки-style-1">Сброс ветки style</h2>
+<figure>
+<img data-src="image/35.png" id="fig:035" style="width:30.0%"
+alt="Сброс ветки style" />
+<figcaption aria-hidden="true">Сброс ветки style</figcaption>
+</figure>
+<h2 id="сброс-ветки-master">Сброс ветки master</h2>
+<figure>
+<img data-src="image/36.png" id="fig:036" style="width:30.0%"
+alt="Поиск коммита перед конфликтом" />
+<figcaption aria-hidden="true">Поиск коммита перед
+конфликтом</figcaption>
+</figure>
+<h2 id="сброс-ветки-master-1">Сброс ветки master</h2>
+<figure>
+<img data-src="image/37.png" id="fig:037" style="width:30.0%"
+alt="Сброс ветки master" />
+<figcaption aria-hidden="true">Сброс ветки master</figcaption>
+</figure>
+<h2 id="перебазирование">Перебазирование</h2>
+<figure>
+<img data-src="image/38.png" id="fig:038" style="width:30.0%"
+alt="Перебазирование" />
+<figcaption aria-hidden="true">Перебазирование</figcaption>
+</figure>
+<h2 id="слияние-в-ветку-master">Слияние в ветку master</h2>
+<figure>
+<img data-src="image/39.png" id="fig:039" style="width:30.0%"
+alt="Слияние style в master" />
+<figcaption aria-hidden="true">Слияние style в master</figcaption>
+</figure>
+<h2 id="клонирование-репозиториев">Клонирование репозиториев</h2>
+<figure>
+<img data-src="image/40.png" id="fig:040" style="width:70.0%"
+alt="Клонирование репозиториев" />
+<figcaption aria-hidden="true">Клонирование репозиториев</figcaption>
+</figure>
+<h2 id="клонирование-репозиториев-1">Клонирование репозиториев</h2>
+<figure>
+<img data-src="image/41.png" id="fig:041" style="width:70.0%"
+alt="Клонирование репозиториев" />
+<figcaption aria-hidden="true">Клонирование репозиториев</figcaption>
+</figure>
+<h2 id="что-такое-origin">Что такое origin?</h2>
+<figure>
+<img data-src="image/42.png" id="fig:042" style="width:70.0%"
+alt="Просмотр имени по умолчанию удаленного репозитория" />
+<figcaption aria-hidden="true">Просмотр имени по умолчанию удаленного
+репозитория</figcaption>
+</figure>
+<h2 id="удаленные-ветки">Удаленные ветки</h2>
+<p>Посмотрим на ветки, доступные в нашем клонированном репозитории.
+Можно увидеть, что в списке только ветка master.</p>
+<h2 id="изменение-оригинального-репозитория">Изменение оригинального
+репозитория</h2>
+<figure>
+<img data-src="image/43.png" id="fig:043" style="width:70.0%"
+alt="Изменение оригинального репозитория" />
+<figcaption aria-hidden="true">Изменение оригинального
+репозитория</figcaption>
+</figure>
+<h2 id="изменение-оригинального-репозитория-1">Изменение оригинального
+репозитория</h2>
+<figure>
+<img data-src="image/44.png" id="fig:044" style="width:50.0%"
+alt="Извлечение изменений" />
+<figcaption aria-hidden="true">Извлечение изменений</figcaption>
+</figure>
+<h2 id="слияние-извлеченных-изменений">Слияние извлеченных
+изменений</h2>
+<figure>
+<img data-src="image/45.png" id="fig:045" style="width:70.0%"
+alt="Слияние извлеченных изменений" />
+<figcaption aria-hidden="true">Слияние извлеченных
+изменений</figcaption>
+</figure>
+<h2 id="добавление-ветки-наблюдения">Добавление ветки наблюдения</h2>
+<figure>
+<img data-src="image/46.png" id="fig:046" style="width:60.0%"
+alt="Добавление ветки наблюдения" />
+<figcaption aria-hidden="true">Добавление ветки наблюдения</figcaption>
+</figure>
+<h2 id="создание-чистого-репозитория">Создание чистого репозитория</h2>
+<figure>
+<img data-src="image/47.png" id="fig:047" style="width:70.0%"
+alt="Создание чистого репозитория" />
+<figcaption aria-hidden="true">Создание чистого репозитория</figcaption>
+</figure>
+<h2 id="отправка-и-извлечение-изменений">Отправка и извлечение
+изменений</h2>
+<figure>
+<img data-src="image/48.png" id="fig:048" style="width:60.0%"
+alt="Отправка изменений" />
+<figcaption aria-hidden="true">Отправка изменений</figcaption>
+</figure>
+<h2 id="отправка-и-извлечение-изменений-1">Отправка и извлечение
+изменений</h2>
+<figure>
+<img data-src="image/49.png" id="fig:049" style="width:60.0%"
+alt="Извлечение изменений" />
+<figcaption aria-hidden="true">Извлечение изменений</figcaption>
+</figure>
+</section>
+<section id="выводы" class="slide level1">
+<h1>Выводы</h1>
+<p>В процессе выполнения данной лабораторной работы я приобрела
+практические навыки работы с Git.</p>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
