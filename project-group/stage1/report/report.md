@@ -1,65 +1,39 @@
 ---
 ## Front matter
-title: "Шаблон отчёта по лабораторной работе"
-subtitle: "Простейший вариант"
-author: "Дмитрий Сергеевич Кулябов"
+title: "Математическое моделирование теплопроводности и горения: Этап 1 — Теоретическая модель"
+author: "Алёна Горяйнова"
 
-## Generic otions
+## Generic options
 lang: ru-RU
 toc-title: "Содержание"
-
-## Bibliography
-bibliography: bib/cite.bib
-csl: pandoc/csl/gost-r-7-0-5-2008-numeric.csl
 
 ## Pdf output format
 toc: true # Table of contents
 toc-depth: 2
-lof: true # List of figures
-lot: true # List of tables
 fontsize: 12pt
-linestretch: 1.5
 papersize: a4
 documentclass: scrreprt
-## I18n polyglossia
-polyglossia-lang:
-  name: russian
-  options:
-	- spelling=modern
-	- babelshorthands=true
-polyglossia-otherlangs:
-  name: english
-## I18n babel
-babel-lang: russian
-babel-otherlangs: english
+
 ## Fonts
 mainfont: IBM Plex Serif
 romanfont: IBM Plex Serif
 sansfont: IBM Plex Sans
 monofont: IBM Plex Mono
 mathfont: STIX Two Math
-mainfontoptions: Ligatures=Common,Ligatures=TeX,Scale=0.94
-romanfontoptions: Ligatures=Common,Ligatures=TeX,Scale=0.94
-sansfontoptions: Ligatures=Common,Ligatures=TeX,Scale=MatchLowercase,Scale=0.94
-monofontoptions: Scale=MatchLowercase,Scale=0.94,FakeStretch=0.9
-mathfontoptions:
-## Biblatex
-biblatex: true
-biblio-style: "gost-numeric"
-biblatexoptions:
-  - parentracker=true
-  - backend=biber
-  - hyperref=auto
-  - language=auto
-  - autolang=other*
-  - citestyle=gost-numeric
-## Pandoc-crossref LaTeX customization
-figureTitle: "Рис."
-tableTitle: "Таблица"
-listingTitle: "Листинг"
-lofTitle: "Список иллюстраций"
-lotTitle: "Список таблиц"
-lolTitle: "Листинги"
+
+## I18n polyglossia
+polyglossia-lang:
+  name: russian
+  options:
+    - spelling=modern
+    - babelshorthands=true
+polyglossia-otherlangs:
+  name: english
+
+# Bibliography
+bibliography: bib/cite.bib
+csl: pandoc/csl/gost-r-7-0-5-2008-numeric.csl
+
 ## Misc options
 indent: true
 header-includes:
@@ -67,53 +41,47 @@ header-includes:
   - \usepackage{float} # keep figures where there are in the text
   - \floatplacement{figure}{H} # keep figures where there are in the text
 ---
-
 # Цель работы
 
-Здесь приводится формулировка цели лабораторной работы. Формулировки
-цели для каждой лабораторной работы приведены в методических
-указаниях.
-
-Цель данного шаблона --- максимально упростить подготовку отчётов по
-лабораторным работам.  Модифицируя данный шаблон, студенты смогут без
-труда подготовить отчёт по лабораторным работам, а также познакомиться
-с основными возможностями разметки Markdown.
+Целью данного этапа проекта является формулировка математической модели теплопроводности с экзотермической химической реакцией, а также анализ основных параметров и уравнений системы.
 
 # Задание
 
-Здесь приводится описание задания в соответствии с рекомендациями
-методического пособия и выданным вариантом.
+В рамках первого этапа проекта необходимо было:  
+- Разработать теоретическую модель теплопроводности с учётом химической реакции.  
+- Определить основные параметры системы, такие как коэффициент теплопроводности ($\kappa$), энергия активации ($E$), характерное время реакции ($\tau$) и другие.  
+- Построить математическую модель горения на основе дифференциальных уравнений.
 
 # Теоретическое введение
 
-Здесь описываются теоретические аспекты, связанные с выполнением работы.
+Горение — это сложный физико-химический процесс, включающий в себя теплопроводность и экзотермическую реакцию. Математическая модель горения основана на дифференциальных уравнениях, включающих теплопроводность и закон Аррениуса.
 
-Например, в табл. [-@tbl:std-dir] приведено краткое описание стандартных каталогов Unix.
+Основные параметры:
+- $\kappa$ — коэффициент теплопроводности
+- $E$ — энергия активации
+- $\tau$ — характерное время химической реакции
+- $\rho, c$ — плотность и удельная теплоёмкость вещества
+- $Q$ — удельное энерговыделение
 
-: Описание некоторых каталогов файловой системы GNU Linux {#tbl:std-dir}
+## Математическая модель
 
-| Имя каталога | Описание каталога                                                                                                          |
-|--------------|----------------------------------------------------------------------------------------------------------------------------|
-| `/`          | Корневая директория, содержащая всю файловую                                                                               |
-| `/bin `      | Основные системные утилиты, необходимые как в однопользовательском режиме, так и при обычной работе всем пользователям     |
-| `/etc`       | Общесистемные конфигурационные файлы и файлы конфигурации установленных программ                                           |
-| `/home`      | Содержит домашние директории пользователей, которые, в свою очередь, содержат персональные настройки и данные пользователя |
-| `/media`     | Точки монтирования для сменных носителей                                                                                   |
-| `/root`      | Домашняя директория пользователя  `root`                                                                                   |
-| `/tmp`       | Временные файлы                                                                                                            |
-| `/usr`       | Вторичная иерархия для данных пользователя                                                                                 |
+Уравнение теплопроводности с учётом энерговыделения:
+$$
+\rho c \frac{\partial T}{\partial t} = \kappa \frac{\partial^2 T}{\partial x^2} - \rho Q \frac{\partial N}{\partial t}
+$$
 
-Более подробно про Unix см. в [@tanenbaum_book_modern-os_ru; @robbins_book_bash_en; @zarrelli_book_mastering-bash_en; @newham_book_learning-bash_en].
+Уравнение химической реакции (закон Аррениуса):
+$$
+\frac{\partial N}{\partial t} = - \frac{N}{\tau} e^{-E/RT}
+$$
 
 # Выполнение лабораторной работы
 
-Описываются проведённые действия, в качестве иллюстрации даётся ссылка на иллюстрацию (рис. [-@fig:001]).
-
-![Название рисунка](image/placeimg_800_600_tech.jpg){#fig:001 width=70%}
+На первом этапе проекта была разработана математическая модель горения. В результате были получены дифференциальные уравнения, описывающие процесс теплопроводности и химической реакции. В дальнейшем эти уравнения будут использоваться для численного моделирования.
 
 # Выводы
 
-Здесь кратко описываются итоги проделанной работы.
+Завершен первый этап проекта. Математическая модель теплопроводности и химической реакции построена, что является основой для дальнейших численных экспериментов.
 
 # Список литературы{.unnumbered}
 
